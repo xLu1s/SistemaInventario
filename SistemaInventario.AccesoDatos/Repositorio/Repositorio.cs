@@ -1,6 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SistemaInventario.AccesoDatos.Data;
 using SistemaInventario.AccesoDatos.Repositorio.Irepositorio;
+<<<<<<< HEAD
+=======
+using SistemaInventario.Modelos.Especificaciones;
+>>>>>>> master
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -78,6 +82,34 @@ namespace SistemaInventario.AccesoDatos.Repositorio
             return await query.ToListAsync();
         }
 
+<<<<<<< HEAD
+=======
+        public PagedList<T> ObtenerTodosPaginado(Parametros parametros, Expression<Func<T, bool>> filtro = null, Func<IQueryable<T>, IOrderedQueryable> orderBy = null, string incluirPropiedades = null, bool isTracking = true)
+        {
+            IQueryable<T> query = dbSet;
+            if (filtro != null)
+            {
+                query = query.Where(filtro); //select * from Table where filtro
+            }
+            if (incluirPropiedades != null)
+            {
+                foreach (var propiedad in incluirPropiedades.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(propiedad); //select * from Table inner join propiedad
+                }
+            }
+            if (orderBy != null)
+            {
+                query = (IQueryable<T>)orderBy(query); //select * from Table order by
+            }
+            if (!isTracking)
+            {
+                query = query.AsNoTracking(); //select * from Table without tracking
+            }
+            return PagedList<T>.ToPagedList(query, parametros.PageNumber, parametros.PageSize);
+        }
+
+>>>>>>> master
         public void Remover(T entidad)
         {
             dbSet.Remove(entidad); //delete from Table where id = id

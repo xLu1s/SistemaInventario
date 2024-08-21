@@ -13,6 +13,11 @@ namespace SistemaInventario.AccesoDatos.Repositorio.Irepositorio
         ICategoriaRepositorio Categoria { get; }
         IMarcaRepositorio Marca { get; }
         IProductoRepositorio Producto { get; }
+<<<<<<< HEAD
+=======
+
+        IUsuarioAplicacionRepositorio UsuarioAplicacion { get; }
+>>>>>>> master
         Task Guardar();
     }
 }
