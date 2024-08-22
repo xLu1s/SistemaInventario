@@ -9,7 +9,6 @@ namespace SistemaInventario.AccesoDatos.Repositorio.Irepositorio
 {
     public interface IUsuarioAplicacionRepositorio : IRepositorio<UsuarioAplicacion>
     {
-        
-
+       
     }
 }
