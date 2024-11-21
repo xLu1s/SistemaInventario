@@ -41,7 +41,6 @@ builder.Services.AddScoped<IUnidadTrabajo, UnidadTrabajo>();
 
 builder.Services.AddRazorPages();
 
-builder.Services.AddSingleton<IEmailSender, EmailSender>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
